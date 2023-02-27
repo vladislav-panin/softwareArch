@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  postgres:
+    container_name: core-db
+    image: postgres
+    environment:
+      POSTGRES_DB: core_db
+      POSTGRES_USER: core_user
+      POSTGRES_PASSWORD: core_user
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres:/data/postgres
+    networks:
+      - postgres
+    restart: unless-stopped
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:
+  
+ 
