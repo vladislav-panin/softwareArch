@@ -1,0 +1,19 @@
+## YAML Template.
+---
+spring:
+  datasource:
+    host: localhost
+    port: 5433
+    dbName: core_db
+    username: core_user
+    password: core_user
+    url: jdbc:postgresql://${spring.datasource.host}:${spring.datasource.port}/${spring.datasource.dbName}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  flyway:
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
