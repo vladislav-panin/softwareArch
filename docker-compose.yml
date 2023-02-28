@@ -9,7 +9,7 @@ services:
     POSTGRES_USER: core_user
     POSTGRES_PASSWORD: core_user
    ports:
-     - "5432:5432"
+     - "5433:5432"
    volumes:
      - postgres:/data/postgres
    healthcheck:
@@ -23,7 +23,7 @@ services:
    container_name: core-api
    build: .
    environment:
-     SPRING_DATASOURCE_URL: jdbc:postgresql://core_db:5432/core_db
+     SPRING_DATASOURCE_URL: jdbc:postgresql://core_db:5433/core_db
    ports:
      - "8080:8080"
    depends_on:

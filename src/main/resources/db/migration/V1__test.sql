@@ -1,6 +1,6 @@
 create table IF NOT EXISTS accounts
 (
-    id      bigint not null generated ALWAYS AS IDENTITY
+    id      bigint
         primary key,
     balance integer,
     code    varchar(255),
@@ -12,7 +12,7 @@ create table IF NOT EXISTS accounts
 
 create table IF NOT EXISTS history
 (
-    id        bigint not null generated ALWAYS AS IDENTITY
+    id        bigint
         primary key,
     code      varchar(255),
     operation integer

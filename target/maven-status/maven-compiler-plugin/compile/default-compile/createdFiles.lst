@@ -3,8 +3,10 @@ ru\softwareDesign\Core\repository\AccountsRepository.class
 ru\softwareDesign\Core\Service\OperationHistoryService.class
 ru\softwareDesign\Core\CoreApplication.class
 ru\softwareDesign\Core\repository\OperationHistoryRepository.class
+ru\softwareDesign\Core\configuration.class
 ru\softwareDesign\Core\models\Accounts.class
 ru\softwareDesign\Core\Service\AccountsServiceImp.class
 ru\softwareDesign\Core\models\OperationHistory.class
 ru\softwareDesign\Core\Service\AccountsService.class
 ru\softwareDesign\Core\models\Amount.class
+ru\softwareDesign\Core\CorsConfiguration.class
