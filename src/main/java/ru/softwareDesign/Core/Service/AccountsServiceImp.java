@@ -38,9 +38,11 @@ public class AccountsServiceImp implements AccountsService{
    }
 
     @Override
-    public Accounts deleteByCode(String code){
-       return accountsRepository.deleteByCode(code);
+    public void deleteByCode(String code){
+        accountsRepository.deleteByCode(code);
     }
+
+    //public Accounts deleteById(Long id){return accountsRepository.deleteById(id);}
 
    /* @Override
     public Optional<Accounts> changeBalancePlus(String code, int amount)

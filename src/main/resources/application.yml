@@ -3,7 +3,7 @@
 spring:
   datasource:
     host: localhost
-    port: 5432
+    port: 5433
     dbName: core_db
     username: core_user
     password: core_user
@@ -11,7 +11,7 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
     show-sql: true
   flyway:
     url: ${spring.datasource.url}

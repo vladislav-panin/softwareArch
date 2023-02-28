@@ -3,6 +3,7 @@ package ru.softwareDesign.Core.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import ru.softwareDesign.Core.Service.AccountsService;
 import ru.softwareDesign.Core.Service.OperationHistoryService;
@@ -28,8 +29,11 @@ public class AccountsController {
         return "Легкий GET запросик";
     }
 
+    @Transactional
     @PostMapping("/openAcc")
     public Accounts save(@RequestBody Accounts accounts) {return service.save(accounts);}
+
+    @Transactional(readOnly = true)
     @GetMapping("/showAll")
     public List<Accounts> listAll() {
         int i = 1;
@@ -41,11 +45,13 @@ public class AccountsController {
         return service.searchByCode(code);
     }
 */
+    @Transactional(readOnly = true)
     @GetMapping(path="/get/{code}")
     public Accounts searchByCode(@PathVariable String code) {return service.searchByCode(code);}
 
+    @Transactional
     @DeleteMapping(path="/deleteAccount/{code}")
-    public Accounts deleteByCode(@PathVariable String code){return service.deleteByCode(code);}
+    public void deleteByCode(@PathVariable String code){service.deleteByCode(code);}
 
     /* @GetMapping("changePlus/{code}") //Не робит, а почему?
     public Optional<Accounts> changeBalancePlus(@PathVariable String code, @RequestBody int amount)
@@ -100,6 +106,7 @@ public class AccountsController {
         return service.save(acc);
     }*/
 
+    @Transactional
     @PatchMapping("change/{code}")
     public Accounts changeBalance(@RequestBody Amount amount, @PathVariable String code)
     {

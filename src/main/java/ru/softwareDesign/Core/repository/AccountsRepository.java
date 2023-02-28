@@ -12,6 +12,8 @@ import java.util.Optional;
 public interface AccountsRepository extends CrudRepository<Accounts, Long> {
     //public Optional<Accounts> searchByCode(String code);
       public Accounts searchByCode(String code);
-      public Accounts deleteByCode(String code);
+      public void deleteByCode(String code);
+
+
       
 }

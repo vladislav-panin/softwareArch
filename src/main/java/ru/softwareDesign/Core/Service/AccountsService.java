@@ -15,7 +15,7 @@ public interface AccountsService {
 
     public Accounts searchByCode(String code);
 
-    public Accounts deleteByCode(String code);
+    public void deleteByCode(String code);
 
   //  public Optional<Accounts> changeBalancePlus(String code, int amount);
 

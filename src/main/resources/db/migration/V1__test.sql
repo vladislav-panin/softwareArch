@@ -1,4 +1,4 @@
-create table accounts
+create table IF NOT EXISTS accounts
 (
     id      bigint not null generated ALWAYS AS IDENTITY
         primary key,
@@ -10,7 +10,7 @@ create table accounts
 
 
 
-create table history
+create table IF NOT EXISTS history
 (
     id        bigint not null generated ALWAYS AS IDENTITY
         primary key,
