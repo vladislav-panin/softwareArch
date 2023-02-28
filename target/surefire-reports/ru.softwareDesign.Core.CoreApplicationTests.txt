@@ -1,4 +1,22 @@
 -------------------------------------------------------------------------------
 Test set: ru.softwareDesign.Core.CoreApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.254 s - in ru.softwareDesign.Core.CoreApplicationTests
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.365 s <<< FAILURE! - in ru.softwareDesign.Core.CoreApplicationTests
+contextLoads  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@29fe4840 testClass = ru.softwareDesign.Core.CoreApplicationTests, locations = [], classes = [ru.softwareDesign.Core.CoreApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceLocations = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7d4f9aae, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@273e7444, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@52719fb6, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@9da1, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@298a5e20, org.springframework.boot.test.context.SpringBootTestAnnotation@ee2aa352], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: �����: ������������ "core_user" �� ������ �������� ����������� (�� ������)
+---------------------------------------------------------------------------------------------------------------------
+SQL State  : 28P01
+Error Code : 0
+Message    : �����: ������������ "core_user" �� ������ �������� ����������� (�� ������)
+
+Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: 
+Unable to obtain connection from database: �����: ������������ "core_user" �� ������ �������� ����������� (�� ������)
+---------------------------------------------------------------------------------------------------------------------
+SQL State  : 28P01
+Error Code : 0
+Message    : �����: ������������ "core_user" �� ������ �������� ����������� (�� ������)
+
+Caused by: org.postgresql.util.PSQLException: �����: ������������ "core_user" �� ������ �������� ����������� (�� ������)
+
