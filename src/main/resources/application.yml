@@ -3,7 +3,7 @@
 spring:
   datasource:
     host: localhost
-    port: 5432
+    port: 5433
     dbName: core_db
     username: core_user
     password: core_user

@@ -6,6 +6,7 @@ import ru.softwareDesign.Core.models.OperationHistory;
 import ru.softwareDesign.Core.repository.AccountsRepository;
 import ru.softwareDesign.Core.repository.OperationHistoryRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,5 +21,9 @@ public class OperationHistoryService {
         return Optional.of(operationHistoryRepository.save(operationHistory));
     }
 
+
+    public List<OperationHistory> findOperationHistoriesByCode(String code) {
+        return (List<OperationHistory>)operationHistoryRepository.findOperationHistoriesByCode(code) ;
+    }
 
 }

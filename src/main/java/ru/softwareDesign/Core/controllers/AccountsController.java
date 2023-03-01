@@ -53,58 +53,7 @@ public class AccountsController {
     @DeleteMapping(path="/deleteAccount/{code}")
     public void deleteByCode(@PathVariable String code){service.deleteByCode(code);}
 
-    /* @GetMapping("changePlus/{code}") //Не робит, а почему?
-    public Optional<Accounts> changeBalancePlus(@PathVariable String code, @RequestBody int amount)
-    {
 
-        Accounts acc = service.searchByCode(code); // тут лежит счет баланс которого хочу увеличить
-        int balance = acc.getBalance();
-        System.out.println("КРУТА");
-        int result = balance + amount;
-        acc.setBalance(result);// ставлю баланс какой мне нужно, дальше надо сохранить в бд результат
-        return service.save(acc);
-
-
-    }*/
-
-    /*  @PatchMapping("changePlus/{code}")
-    public Optional<Accounts> changeBalancePlus(@RequestBody Amount amount, @PathVariable String code)
-    {
-
-        Accounts acc = service.searchByCode(code); // тут лежит счет баланс которого хочу увеличить
-        int balance = acc.getBalance();
-        int result = balance + amount.value;
-        acc.setBalance(result);// ставлю баланс какой мне нужно, дальше надо сохранить в бд результат
-        OperationHistory operationHistory = new OperationHistory();
-        operationHistory.setId(1L);
-        operationHistory.setCode(code);
-        operationHistory.setOperation(amount.value);
-        historyService.save(operationHistory);
-        return service.save(acc);
-
-
-    }
-
-    @GetMapping("/dimple")
-    public String dimple(){
-        return "ХОТЬ ЧТО ТО";
-    }
-
-    @PatchMapping ("changeMinus/{code}")
-    public Optional<Accounts> changeBalanceMinus(@PathVariable String code, @RequestBody Amount amount)
-    {
-
-        Accounts acc = service.searchByCode(code); // тут лежит счет баланс которого хочу увеличить
-        int balance = acc.getBalance();
-        if(balance < amount.value)
-           return service.save(acc);
-
-        int result = balance - amount.value;
-        acc.setBalance(result);// ставлю баланс какой мне нужно, дальше надо сохранить в бд результат
-
-
-        return service.save(acc);
-    }*/
 
     @Transactional
     @PatchMapping("change/{code}")
@@ -130,6 +79,12 @@ public class AccountsController {
         return service.save(acc);
 
 
+    }
+
+    @Transactional
+    @GetMapping("seeHistoryByCode/{code}")
+    public List<OperationHistory> findOperationHistoriesByCode(@PathVariable String code) {
+        return (List<OperationHistory>)historyService.findOperationHistoriesByCode(code) ;
     }
 
 

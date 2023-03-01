@@ -33,6 +33,9 @@ public class Accounts
     @Column(name = "owner") //владелец счета - возможно стоит юзать айди
     private String owner;
 
+    //поле с айти из сервиса с авторизацией
+    @Column(name = "ownerId")
+    private UUID ownerId;
     @Column(name = "balance") //баланс
   //  private BigDecimal balance = new BigDecimal(0.0); // начальное значение 0.0
     private int balance;
