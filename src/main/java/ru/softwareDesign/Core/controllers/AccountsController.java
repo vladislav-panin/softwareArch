@@ -1,8 +1,6 @@
 package ru.softwareDesign.Core.controllers;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import ru.softwareDesign.Core.Service.AccountsService;
@@ -13,7 +11,6 @@ import ru.softwareDesign.Core.models.OperationHistory;
 
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -30,11 +27,11 @@ public class AccountsController {
     }
 
     @Transactional
-    @PostMapping("/openAcc")
+    @PostMapping("/openNewAccount")
     public Accounts save(@RequestBody Accounts accounts) {return service.save(accounts);}
 
     @Transactional(readOnly = true)
-    @GetMapping("/showAll")
+    @GetMapping("/showAllAccounts")
     public List<Accounts> listAll() {
         int i = 1;
         return service.listAll();
@@ -46,17 +43,17 @@ public class AccountsController {
     }
 */
     @Transactional(readOnly = true)
-    @GetMapping(path="/get/{code}")
+    @GetMapping(path= "/searchAccountByCode/{code}")
     public Accounts searchByCode(@PathVariable String code) {return service.searchByCode(code);}
 
     @Transactional
-    @DeleteMapping(path="/deleteAccount/{code}")
+    @DeleteMapping(path= "/deleteAccountByCode/{code}")
     public void deleteByCode(@PathVariable String code){service.deleteByCode(code);}
 
 
 
     @Transactional
-    @PatchMapping("change/{code}")
+    @PatchMapping("changeBalance/{code}")
     public Accounts changeBalance(@RequestBody Amount amount, @PathVariable String code)
     {
 
@@ -82,7 +79,7 @@ public class AccountsController {
     }
 
     @Transactional
-    @GetMapping("seeHistoryByCode/{code}")
+    @GetMapping("seeAccountHistoryByCode/{code}")
     public List<OperationHistory> findOperationHistoriesByCode(@PathVariable String code) {
         return (List<OperationHistory>)historyService.findOperationHistoriesByCode(code) ;
     }
