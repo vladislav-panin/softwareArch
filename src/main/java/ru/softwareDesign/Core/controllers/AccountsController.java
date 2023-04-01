@@ -27,11 +27,11 @@ public class AccountsController {
     }
 
     @Transactional
-    @PostMapping("/openNewAccount")
+    @PostMapping()
     public Accounts save(@RequestBody Accounts accounts) {return service.save(accounts);}
 
     @Transactional(readOnly = true)
-    @GetMapping("/showAllAccounts")
+    @GetMapping()
     public List<Accounts> listAll() {
         int i = 1;
         return service.listAll();
@@ -43,17 +43,17 @@ public class AccountsController {
     }
 */
     @Transactional(readOnly = true)
-    @GetMapping(path= "/searchAccountByCode/{code}")
+    @GetMapping(path= "/{code}")
     public Accounts searchByCode(@PathVariable String code) {return service.searchByCode(code);}
 
     @Transactional
-    @DeleteMapping(path= "/deleteAccountByCode/{code}")
+    @DeleteMapping(path= "/{code}")
     public void deleteByCode(@PathVariable String code){service.deleteByCode(code);}
 
 
 
     @Transactional
-    @PatchMapping("changeBalance/{code}")
+    @PatchMapping("/{code}")
     public Accounts changeBalance(@RequestBody Amount amount, @PathVariable String code)
     {
 
@@ -79,7 +79,7 @@ public class AccountsController {
     }
 
     @Transactional
-    @GetMapping("seeAccountHistoryByCode/{code}")
+    @GetMapping("History/{code}")
     public List<OperationHistory> findOperationHistoriesByCode(@PathVariable String code) {
         return (List<OperationHistory>)historyService.findOperationHistoriesByCode(code) ;
     }
