@@ -9,4 +9,5 @@ ru\softwareDesign\Core\Service\AccountsServiceImp.class
 ru\softwareDesign\Core\models\OperationHistory.class
 ru\softwareDesign\Core\Service\AccountsService.class
 ru\softwareDesign\Core\models\Amount.class
+ru\softwareDesign\Core\controllers\Consumer.class
 ru\softwareDesign\Core\CorsConfiguration.class

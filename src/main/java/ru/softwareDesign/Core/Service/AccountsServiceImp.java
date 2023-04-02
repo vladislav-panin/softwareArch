@@ -7,6 +7,7 @@ import ru.softwareDesign.Core.repository.AccountsRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class AccountsServiceImp implements AccountsService{
@@ -17,8 +18,12 @@ public class AccountsServiceImp implements AccountsService{
     public AccountsServiceImp(AccountsRepository accountsRepository) {
         this.accountsRepository = accountsRepository;
     }
+
+
     @Override
     public Accounts save(Accounts accounts) {
+        accounts.setCode(UUID.randomUUID().toString()); //
+        accounts.setBalance(0); //
         Accounts account = accountsRepository.save(accounts);
         return account;
     }

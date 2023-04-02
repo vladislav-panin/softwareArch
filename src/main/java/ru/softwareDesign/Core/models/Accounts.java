@@ -25,14 +25,14 @@ public class Accounts
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "code") //номер счета
     private String code;
 
-    @Column(name = "owner") //владелец счета - возможно стоит юзать айди
+    /*  @Column(name = "owner") //владелец счета - возможно стоит юзать айди
     private String owner;
-
+*/
     //поле с айти из сервиса с авторизацией
     @Column(name = "ownerId")
     private UUID ownerId;
